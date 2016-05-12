@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximun-scale=1">
+    <title>学习情况</title>
+
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+
+            background-color: #000;
+
+            font-size: 12px;
+        }
+
+        .iphone{
+            position: absolute;
+            left: 50%;
+            top:50%;
+
+            margin: -270px 0 0 -170px;
+            width: 340px;
+            height: 540px;
+
+
+            background-color: #eeeeee;
+        }
+
+        .h5_component_base{
+            transition: all 1s;
+        }
+
+        .h5_component_base_load{
+            opacity: 1;
+        }
+        .h5_component_base_leave{
+            opacity: 0
+        }
+    </style>
+
+    <link rel="stylesheet" href="../css/H5ComponentBase.css">
+    <link rel="stylesheet" href="../css/H5ComponentPoint.css">
+    <script src="../js/lab/jquery.js"></script>
+    <script src="../js/H5ComponentBase.js"></script>
+    <script src="../js/H5ComponentPoint.js"></script>
+
+</head>
+<body>
+<!--用于验证 fullpage.js 切换页面，以及内容组织结构可用，组件能够进行动画-->
+
+<div class="iphone">
+
+</div>
+
+<script type="text/javascript">
+    var cfg = {
+        type:'point',
+        data:[
+            ['A',.4, 'green'],
+            ['B', .2, 'red', '20%', '-60%'],
+            ['C',.1, 'blue', 0, '120%']
+        ],
+        width: 300,
+        height:300,
+        css:{left:50, bottom:0,opacity:0},
+        center: true,
+        animateIn:{bottom:200, opacity:1},
+        animateOut:{bottom:0, opacity:0}
+    };
+
+    var h5 = new H5ComponentPoint('myname',cfg);
+
+    $('.iphone').append(h5);
+
+    var leave = true;
+    $('body').click(function(){
+        leave = !leave;
+        $('.h5_component').trigger(leave ? 'onLeave' : 'onLoad');
+    })
+</script>
+</body>
+</html>

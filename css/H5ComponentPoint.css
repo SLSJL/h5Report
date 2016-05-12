@@ -1,0 +1,27 @@
+.h5_component_point{}
+
+.h5_component_point .point{
+    position: absolute;
+
+    border-radius: 50%;
+    display: block;
+    background-color: #ccc;
+}
+
+
+.h5_component_point .point .name{
+    position: absolute;
+    top:50%;
+    margin-top: -15px;
+    height: 30px;
+    width: 100%;
+
+    text-align: center;
+    font-size: 22px;
+}
+
+
+.h5_component_point .point .rate{
+font-size: 0.5em;
+}
+
